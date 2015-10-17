@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AngulaRJS Binding</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+  </head>
+  <body>
+    <div ng-app>
+      <h1>BINDING {{ message }}</h1>
+      <input type="text" ng-model="message">
+      <p>{{ message }}</p>
+      <p>{{ message + " " + message }}</p>
+      <p>{{ message === "hello" }}</p>
+      <p>{{ 1 + 2}}</p>
+    </div>
+  </body>
+</html>
