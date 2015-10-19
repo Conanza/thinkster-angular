@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>AngularJS Controllers</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body>
+    <div ng-app="app">
+      <h1>Controllers</h1>
+      <div ng-controller="MainCtrl as main">
+        <p>{{ main.message }}</p>
+        <p>{{ main.conan }}</p>
+
+        <form ng-submit="main.updateMessage(main.newMessage)">
+          <input type="text" ng-model="main.newMessage">
+          
+          <button type="submit">Update Message</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
