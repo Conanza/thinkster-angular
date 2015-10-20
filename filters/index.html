@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Filters</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body ng-app="app" ng-controller="TestCtrl as test">
+    <input type="text" ng-model="test.myString">
+    <h2>
+      {{ test.myString | capitalize }}
+    </h2>
+    <hr>
+
+    <!-- search name attribute -->
+    Search name: <input type="text" ng-model="search.name">
+    <!-- search born attr -->
+    Search location: <input type="text" ng-model="search.born">
+    <!-- general search over all attrs -->
+    Search all: <input type="text" ng-model="search.$">
+
+    <p ng-repeat="person in test.people | filter: search | orderBy: 'name'">
+      {{ person.name }}, from {{ person.born }}
+    </p>
+
+    <form ng-submit="test.addName(test.somePerson)">
+      <input type="text" placeholder="name" ng-model="test.somePerson.name">
+      <input type="text" placeholder="location" ng-model="test.somePerson.loc">
+      <button type="submit">Add name</button>
+    </form>
+  </body>
+</html>
