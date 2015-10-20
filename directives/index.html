@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Directives</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
+    <script type="text/javascript" src="greetings.js"></script>
+    <script type="text/javascript" src="functionalities.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+  </head>
+  <body ng-app="app">
+    <welcome-element></welcome-element>
+
+    <div welcome-attr></div>
+
+    <div class="welcome-class"></div>
+
+    <!-- directive: welcome-comment -->
+
+    <div welcome-attr goodbye-attr></div>
+
+    <div entering leaving>hover over for console logs</div>
+  </body>
+</html>
