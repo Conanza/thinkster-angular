@@ -15,10 +15,13 @@
 
     <!-- search name attribute -->
     Search name: <input type="text" ng-model="search.name">
+    <br>
     <!-- search born attr -->
     Search location: <input type="text" ng-model="search.born">
+    <br>
     <!-- general search over all attrs -->
     Search all: <input type="text" ng-model="search.$">
+    <br>
 
     <p ng-repeat="person in test.people | filter: search | orderBy: 'name'">
       {{ person.name }}, from {{ person.born }}
