@@ -1,6 +1,7 @@
 angular.module("app", [])
   .controller("TestCtrl", TestCtrl)
-  .filter("capitalize", CapitalizeFilter);
+  .filter("capitalize", CapitalizeFilter)
+  .filter("fromLocation", FromLocationFilter);
 
 function TestCtrl() {
   var self = this;
@@ -38,5 +39,21 @@ function TestCtrl() {
 function CapitalizeFilter() {
   return function(text) {
     return text.toUpperCase();
+  };
+}
+
+function FromLocationFilter() {
+  return function(people, input) {
+    var newLocations = [];
+    var locationRegex = new RegExp(input, "i");
+
+    for (var i = 0; i < people.length; i++) {
+      var person = people[i];
+      if (locationRegex.test(person.born)) {
+        newLocations.push(person);
+      }
+    }
+
+    return newLocations;
   };
 }

@@ -26,6 +26,13 @@
     <p ng-repeat="person in test.people | filter: search | orderBy: 'name'">
       {{ person.name }}, from {{ person.born }}
     </p>
+    <br>
+
+    <!-- Custom Filter with argument -->
+    Location desired: <input type="text" ng-model="location">
+    <p ng-repeat="person in test.people | fromLocation: location">
+      {{ person.name }}, {{ person.born }}
+    </p>
 
     <form ng-submit="test.addName(test.somePerson)">
       <input type="text" placeholder="name" ng-model="test.somePerson.name">
