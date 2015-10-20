@@ -7,8 +7,9 @@
     <script type="text/javascript" src="greetings.js"></script>
     <script type="text/javascript" src="functionalities.js"></script>
     <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="FunController.js"></script>
   </head>
-  <body ng-app="app">
+  <body ng-app="app" ng-controller="FunCtrl as fun">
     <welcome-element></welcome-element>
 
     <div welcome-attr></div>
@@ -20,5 +21,7 @@
     <div welcome-attr goodbye-attr></div>
 
     <div entering="activeClass" leaving>hover over for console logs</div>
+
+    <div entering="fun.start()">hover over for fun times</div>
   </body>
 </html>

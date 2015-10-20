@@ -5,6 +5,8 @@ angular.module("functionalities", [])
       element.bind("mouseenter", function() {
         console.log("Mouse has entered the div");
 
+        scope.$apply(attrs.entering);
+
         element.addClass(attrs.entering);
       });
     };
@@ -18,4 +20,4 @@ angular.module("functionalities", [])
         element.removeClass(attrs.entering);
       });
     };
-  })
+  });
