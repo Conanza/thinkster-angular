@@ -3,10 +3,13 @@ angular.module("greetings", [])
   .directive("hello", hello)
   .directive("howdy", howdy)
   .directive("hi", hi)
+
   .directive("welcomeElement", function() {
     return {
       restrict: "E",
-      template: "<div>Howdy there!</div>"
+      scope: {},
+      transclude: true,
+      template: "<div>Howdy there!</div><ng-transclude></ng-transclude>"
     };
   })
 
@@ -70,7 +73,7 @@ function anotherWelcome() {
 
     // provides isolate scope - scope for each directive is local to that directive instance
     scope: {},
-    
+
     controller: function($scope) {
       $scope.words = [];
 
