@@ -1,4 +1,8 @@
 angular.module("greetings", [])
+  .directive("anotherWelcome", anotherWelcome)
+  .directive("hello", hello)
+  .directive("howdy", howdy)
+  .directive("hi", hi)
   .directive("welcomeElement", function() {
     return {
       restrict: "E",
@@ -27,7 +31,7 @@ angular.module("greetings", [])
       link: function() {
         alert("goodbye");
       }
-    }
+    };
   })
 
   .directive("welcomeClass", function() {
@@ -58,4 +62,62 @@ angular.module("greetings", [])
         }, 1500);
       }
     };
-  })
+  });
+
+function anotherWelcome() {
+  return {
+    restrict: "E",
+
+    // provides isolate scope - scope for each directive is local to that directive instance
+    scope: {},
+    
+    controller: function($scope) {
+      $scope.words = [];
+
+      this.sayHello = function() {
+        $scope.words.push("hello");
+      };
+
+      this.sayHowdy = function() {
+        $scope.words.push("howdy");
+      };
+
+      this.sayHi = function() {
+        $scope.words.push("hi");
+      };
+    },
+
+    link: function(scope, element) {
+      element.bind("mouseenter", function() {
+        console.log(scope.words);
+      });
+    }
+  };
+}
+
+function hello() {
+  return {
+    require: "anotherWelcome",
+    link: function(scope, element, attrs, welcomeCtrl) {
+      welcomeCtrl.sayHello();
+    }
+  };
+}
+
+function howdy() {
+  return {
+    require: "anotherWelcome",
+    link: function(scope, element, attrs, wC) {
+      wC.sayHowdy();
+    }
+  };
+}
+
+function hi() {
+  return {
+    require: "anotherWelcome",
+    link: function(scope, element, attrs, welcome) {
+      welcome.sayHi();
+    }
+  };
+}

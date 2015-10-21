@@ -12,16 +12,19 @@
   <body ng-app="app" ng-controller="FunCtrl as fun">
     <welcome-element></welcome-element>
 
-    <div welcome-attr></div>
+    <p welcome-attr></p>
 
-    <div class="welcome-class"></div>
+    <p class="welcome-class"></p>
 
     <!-- directive: welcome-comment -->
 
-    <div welcome-attr goodbye-attr></div>
+    <p welcome-attr goodbye-attr></p>
 
-    <div entering="activeClass" leaving>hover over for console logs</div>
+    <p entering="activeClass" leaving>hover over for console logs</p>
 
-    <div entering="fun.start()">hover over for fun times</div>
+    <p entering="fun.start()">hover over for fun times</p>
+
+    <another-welcome hello howdy hi><h1>Welcome</h1></another-welcome>
+    <another-welcome hi><h1>just hi</h1></another-welcome>
   </body>
 </html>
