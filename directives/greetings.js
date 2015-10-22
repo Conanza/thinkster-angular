@@ -4,7 +4,7 @@ angular.module("greetings", [])
   .directive("howdy", howdy)
   .directive("hi", hi)
 
-  .directive("welcomeElement", function() {
+  .directive("welcomeElement", function () {
     return {
       restrict: "E",
       scope: {},
@@ -13,11 +13,11 @@ angular.module("greetings", [])
     };
   })
 
-  .directive("welcomeAttr", function() {
+  .directive("welcomeAttr", function () {
     return {
       restrict: "A",
-      link: function() {
-        setTimeout(function() {
+      link: function () {
+        setTimeout(function () {
           var body = document.getElementsByTagName("body")[0];
           var newElement = document.createElement("div");
           newElement.textContent = "hi from custom attribute";
@@ -28,20 +28,20 @@ angular.module("greetings", [])
     };
   })
 
-  .directive("goodbyeAttr", function() {
+  .directive("goodbyeAttr", function () {
     return {
       restrict: "A",
-      link: function() {
+      link: function () {
         alert("goodbye");
       }
     };
   })
 
-  .directive("welcomeClass", function() {
+  .directive("welcomeClass", function () {
     return {
       restrict: "C",
-      link: function() {
-        setTimeout(function() {
+      link: function () {
+        setTimeout(function () {
           var body = document.getElementsByTagName("body")[0];
           var newElement = document.createElement("div");
           newElement.textContent = "class - conan wuz here";
@@ -52,11 +52,11 @@ angular.module("greetings", [])
     };
   })
 
-  .directive("welcomeComment", function() {
+  .directive("welcomeComment", function () {
     return {
       restrict: "M",
-      link: function() {
-        setTimeout(function() {
+      link: function () {
+        setTimeout(function () {
           var body = document.getElementsByTagName("body")[0];
           var newElement = document.createElement("div");
           newElement.textContent = "comment style - why would you do this";
@@ -74,24 +74,24 @@ function anotherWelcome() {
     // provides isolate scope - scope for each directive is local to that directive instance
     scope: {},
 
-    controller: function($scope) {
+    controller: function ($scope) {
       $scope.words = [];
 
-      this.sayHello = function() {
+      this.sayHello = function () {
         $scope.words.push("hello");
       };
 
-      this.sayHowdy = function() {
+      this.sayHowdy = function () {
         $scope.words.push("howdy");
       };
 
-      this.sayHi = function() {
+      this.sayHi = function () {
         $scope.words.push("hi");
       };
     },
 
-    link: function(scope, element) {
-      element.bind("mouseenter", function() {
+    link: function (scope, element) {
+      element.bind("mouseenter", function () {
         console.log(scope.words);
       });
     }
@@ -101,7 +101,7 @@ function anotherWelcome() {
 function hello() {
   return {
     require: "anotherWelcome",
-    link: function(scope, element, attrs, welcomeCtrl) {
+    link: function (scope, element, attrs, welcomeCtrl) {
       welcomeCtrl.sayHello();
     }
   };
@@ -110,7 +110,7 @@ function hello() {
 function howdy() {
   return {
     require: "anotherWelcome",
-    link: function(scope, element, attrs, wC) {
+    link: function (scope, element, attrs, wC) {
       wC.sayHowdy();
     }
   };
@@ -119,7 +119,7 @@ function howdy() {
 function hi() {
   return {
     require: "anotherWelcome",
-    link: function(scope, element, attrs, welcome) {
+    link: function (scope, element, attrs, welcome) {
       welcome.sayHi();
     }
   };

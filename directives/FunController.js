@@ -4,7 +4,7 @@ angular.module("app")
 function FunCtrl() {
   var self = this;
 
-  self.start = function() {
+  self.start = function () {
     console.log("Fun times have been started!");
   };
 }

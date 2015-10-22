@@ -1,4 +1,4 @@
-(function(window) {
+(function (window) {
   angular.module("app", [])
 
     .directive("tab", tab)
@@ -13,7 +13,7 @@
         heading: "@"
       },
       template: "<div role='tabpanel' ng-show='active' ng-transclude></div>",
-      link: function(scope, element, attr, tabsetCtrl) {
+      link: function (scope, element, attr, tabsetCtrl) {
         scope.active = false;
         tabsetCtrl.addTab(scope);
       }
@@ -28,11 +28,11 @@
       templateUrl: "tabset.html",
       bindToController: true,
       controllerAs: "tabset",
-      controller: function() {
+      controller: function () {
         var self = this;
         self.tabs = [];
 
-        self.addTab = function(tab) {
+        self.addTab = function (tab) {
           self.tabs.push(tab);
 
           if (self.tabs.length === 1) {
@@ -40,8 +40,8 @@
           }
         };
 
-        self.select = function(selectedTab) {
-          angular.forEach(self.tabs, function(tab) {
+        self.select = function (selectedTab) {
+          angular.forEach(self.tabs, function (tab) {
             if (tab.active && tab !== selectedTab) {
               tab.active = false;
             }
