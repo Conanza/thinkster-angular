@@ -2,7 +2,7 @@ angular.module("app", [])
   .directive("clock", clockDirective)
   .directive("panel", panelDirective);
 
-function clockDirective() {
+function clockDirective () {
   return {
     restrict: "E",
     scope: {
@@ -15,6 +15,15 @@ function clockDirective() {
   };
 }
 
-function panelDirective() {
-
+function panelDirective () {
+  return {
+    restrict: "E",
+    transclude: true,
+    scope: {
+      title: "@"
+    },
+    template: "<div style='border: 3px solide black'>" +
+              "<div class='alert-box'>{{ title }}</div>" +
+              "<div ng-transclude></div></div>"
+  };
 }
