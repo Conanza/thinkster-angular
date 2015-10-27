@@ -1,0 +1,13 @@
+<h2>Fine Scotches</h2>
+<div ng-controller="scotchController as scotchCtrl">
+  <table class="table table-striped table-bordered">
+    <tr>
+      <th>Name</th>
+      <th>Cost</th>
+    </tr>
+    <tr ng-repeat="scotch in scotchCtrl.scotches">
+      <td>{{ scotch.name }}</td>
+      <td>{{ scotch.price | currency }}</td>
+    </tr>
+  </table>
+</div>

@@ -22,6 +22,35 @@ angular.module("routerApp", ["ui.router"])
       })
 
       .state("about", {
-
+        url: "/about",
+        views: {
+          "": { templateUrl: "partial-about.html" },
+          "columnOne@about": { template: "COLUMN ONE!!!" },
+          "columnTwo@about": {
+            templateUrl: "table-data.html",
+            controller: "scotchController"
+          }
+        }
       });
-  });
+  })
+
+  .controller("scotchController", scotchController);
+
+function scotchController () {
+  var self = this;
+  self.message = "test";
+  self.scotches = [
+    {
+      name: "Macallan 12",
+      price: 50
+    },
+    {
+      name: "Chivas Regal Royal Salute",
+      price: 10000
+    },
+    {
+      name: "Glenfiddich 1937",
+      price: 20000
+    }
+  ];
+}
