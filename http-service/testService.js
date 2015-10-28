@@ -1,4 +1,5 @@
-angular.module("nameApp")
+angular
+  .module("nameApp")
   .service("TestService", TestService);
 
 function TestService ($http) {

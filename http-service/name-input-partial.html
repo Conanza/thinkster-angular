@@ -1,5 +1,5 @@
-<input type="text" ng-model="test.newName" placeholder="enter name"></input>
+<form ng-submit="test.addName(test.newName)">
+  <input type="text" ng-model="test.newName" placeholder="enter name"></input>
 
-<button class="btn btn-primary" ng-click="test.addName(test.newName)">
-  add new name
-</button>
+  <button class="btn btn-primary">add new name</button>
+</form>

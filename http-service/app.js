@@ -1,27 +1,33 @@
-angular.module("nameApp", ["ui.router"])
-  .config(function ($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise("/");
+angular
+  .module("nameApp", ["ui.router"])
+  .config(router);
 
-    $stateProvider
-      .state("/", {
-        url: "/",
-        template: "<h1>Landing Page or something</h1>"
-      })
+function router ($stateProvider, $urlRouterProvider) {
+  $urlRouterProvider.otherwise("/");
 
-      .state("home", {
-        url: "/home",
-        views: {
-          "": {
-            templateUrl: "home.html"
-          },
+  $stateProvider
+    .state("/", {
+      url: "/",
+      template: "<h1 class='text-center jumbotron'>Landing Page or something</h1>"
+    })
 
-          "nameList@home": {
-            templateUrl: "name-list-partial.html"
-          },
+    .state({
+      name: "home",
+      url: "/whateveri want",
+      controller: "TestController",
+      controllerAs: "test",
+      views: {
+        "": {
+          templateUrl: "home.html"
+        },
 
-          "nameInput@home": {
-            templateUrl: "name-input-partial.html"
-          }
+        "nameList@home": {
+          templateUrl: "name-list-partial.html"
+        },
+
+        "nameInput@home": {
+          templateUrl: "name-input-partial.html"
         }
-      });
-  });
+      }
+    });
+}

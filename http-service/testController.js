@@ -1,8 +1,10 @@
-angular.module("nameApp")
+angular
+  .module("nameApp")
   .controller("TestController", TestController);
 
 function TestController (TestService) {
   var self = this;
+  self.working = "is this working?";
   self.names = [];
   self.clickedName = "";
 
