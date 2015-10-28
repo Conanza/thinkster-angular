@@ -1,15 +1,18 @@
-angular.module("app")
+angular.module("nameApp")
   .controller("TestController", TestController);
 
 function TestController (TestService) {
   var self = this;
   self.names = [];
+  self.clickedName = "";
 
   self.addName = function (name) {
     TestService.addPerson({
       name: name
     }).success(function (data) {
       self.names.push(data);
+
+      self.newName = "";
     }).error(function (err, status) {
       console.log("ERRORR:", status);
     });
@@ -31,10 +34,20 @@ function TestController (TestService) {
       });
   };
 
+  self.editName = function (name) {
+    self.clickedName = name;
+    console.log(name);
+    // self.showName = !(self.showName);
+  };
+
   self.getNames = function () {
     TestService.get()
       .then(function (res) {
         self.names = res;
       });
+  };
+
+  self.showName = function (name) {
+    return self.clickedName !== name;
   };
 }

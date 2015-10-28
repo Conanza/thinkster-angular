@@ -2,3 +2,7 @@
   cursor: pointer;
   color: red;
 }
+
+.navbar {
+  border-radius: 0;
+}
