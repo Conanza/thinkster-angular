@@ -30,6 +30,7 @@ function TestController (TestService) {
           }
         }
 
+        self.clickedName = "";
         self.names.splice(deleteIdx, 1);
       }).error(function (err, status) {
         console.log("ERROR:", status);
@@ -40,6 +41,25 @@ function TestController (TestService) {
     self.clickedName = name;
     console.log(name);
     // self.showName = !(self.showName);
+  };
+
+  self.editPerson = function (name, id) {
+    TestService.editPerson({ name: name }, id)
+      .success(function (data) {
+        console.log("name updated");
+
+        for (i = 0; i < self.names.length; i++) {
+          if (data.id === self.names[i].id) {
+            deleteIdx = i;
+          }
+        }
+
+        self.clickedName = "";
+        self.names.splice(deleteIdx, 1, data);
+      })
+      .error(function (err, status) {
+        console.log("NAME UPDATE ERROR:", status);
+      });
   };
 
   self.getNames = function () {

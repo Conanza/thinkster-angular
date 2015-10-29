@@ -11,6 +11,14 @@ function TestService ($http) {
     });
   };
 
+  this.editPerson = function (person, id) {
+    return $http({
+      method: "PATCH",
+      url: "http://localhost:8080/v1/names/" + id,
+      data: { name: person }
+    });
+  };
+
   this.get = function () {
     return $http.get("http://localhost:8080/v1/names")
       .then(function (res) {

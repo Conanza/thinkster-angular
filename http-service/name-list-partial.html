@@ -1,7 +1,14 @@
 <div ng-repeat="person in test.names">
-  <span ng-click="test.editName(person.name)" ng-if="test.showName(person.name)">{{ person.name }}</span>
-  <input autofocus ng-if="!test.showName(person.name)"></input>
 
-  | <span ng-click="test.deletePerson(person)" class="delete-button">&times</span>
+  <span ng-click="test.editName(person.name)" ng-if="test.showName(person.name)">{{ person.name }}</span>
+
+  <form
+    ng-if="!test.showName(person.name)"
+    ng-submit="test.editPerson(name, person.id)">
+    <input autofocus ng-init="name = person.name" ng-model="name">
+  </form>
+
+  <span ng-click="test.deletePerson(person)" class="delete-button">&times</span>
 </div>
+
 <button class="btn btn-primary" ng-click="test.getNames()">get names</button>
