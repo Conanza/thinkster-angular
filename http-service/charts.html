@@ -13,9 +13,11 @@
   </form>
 
   <div ng-repeat="option in charts.options">
-    <div ng-if="option.type === charts.radioSelection">
-      <nvd3 options="option.config" data="charts.tempData"></nvd3>
-    </div>
+    <nvd3
+      ng-if="option.type === charts.radioSelection"
+      options="option.config"
+      data="charts.tempData">
+    </nvd3>
   </div>
 
 </div>
