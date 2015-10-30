@@ -1,5 +1,5 @@
 angular
-  .module("nameApp", ["ui.router"])
+  .module("nameApp", ["ui.router", "nvd3"])
   .config(router);
 
 function router ($stateProvider, $urlRouterProvider) {
@@ -12,20 +12,20 @@ function router ($stateProvider, $urlRouterProvider) {
     })
 
     .state({
-      name: "home",
-      url: "/whateveri want",
-      controller: "TestController",
-      controllerAs: "test",
+      name: "names",
+      url: "/names",
+      // controller: "TestController",
+      // controllerAs: "test",
       views: {
         "": {
-          templateUrl: "home.html"
+          templateUrl: "names.html"
         },
 
-        "nameList@home": {
+        "nameList@names": {
           templateUrl: "name-list-partial.html"
         },
 
-        "nameInput@home": {
+        "nameInput@names": {
           templateUrl: "name-input-partial.html"
         }
       }

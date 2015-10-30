@@ -1,0 +1,21 @@
+<h1>WANNA SEE SOME COOL CHARTS</h1>
+
+<div ng-controller="ChartsController as charts">
+
+  <form ng-repeat="option in charts.options">
+    <label name="chart-selection">
+      <input
+        name="chart-selection"
+        type="radio"
+        value="{{ option.type }}"
+        ng-model="charts.radioSelection">{{ option.string }}
+    </label>
+  </form>
+
+  <div ng-repeat="option in charts.options">
+    <div ng-if="option.type === charts.radioSelection">
+      <nvd3 options="option.config" data="charts.tempData"></nvd3>
+    </div>
+  </div>
+
+</div>

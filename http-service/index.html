@@ -5,12 +5,13 @@
     <title>$http fun</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="bower_components/nvd3/build/nv.d3.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>
-    <script src="app.js"></script>
-    <script src="testService.js"></script>
-    <script src="testController.js"></script>
+    <script src="bower_components/d3/d3.js"></script>
+    <script src="bower_components/nvd3/build/nv.d3.js"></script> <!-- or use another assembly -->
+    <script src="bower_components/angular-nvd3/dist/angular-nvd3.js"></script>
   </head>
   <body ng-app="nameApp">
     <nav class="navbar navbar-inverse">
@@ -22,10 +23,17 @@
       </div>
 
       <ul class="nav navbar-nav">
-        <li><a ui-sref="home">Home or something</a></li>
+        <li><a ui-sref="names">Home or something</a></li>
+        <li><a ui-sref="charts">Charts</a></li>
       </ul>
     </nav>
 
     <div ui-view></div>
+
+    <script src="app.js"></script>
+    <script src="testService.js"></script>
+    <script src="testController.js"></script>
+    <script src="chartsController.js"></script>
+    <script src="chartsState.js"></script>
   </body>
 </html>
